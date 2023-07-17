@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(options => 
 {
     options.UseOracle(builder.Configuration.
-    	GetConnectionString("OraDbConnection"));
+    	GetConnectionString("OraDbConnection"));    
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
