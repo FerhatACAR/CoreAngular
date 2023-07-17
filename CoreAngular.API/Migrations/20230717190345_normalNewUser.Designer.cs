@@ -11,14 +11,15 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace CoreAngular.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230713202429_firstMigration")]
-    partial class firstMigration
+    [Migration("20230717190345_normalNewUser")]
+    partial class normalNewUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("COREANGULAR")
                 .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -37,7 +38,7 @@ namespace CoreAngular.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", "COREANGULAR");
                 });
 #pragma warning restore 612, 618
         }

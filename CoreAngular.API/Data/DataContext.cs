@@ -13,7 +13,10 @@ namespace CoreAngular.API.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("COREANGULAR");
+        }
         public DbSet<AppUser> Users{ get; set; }
     }
 }
