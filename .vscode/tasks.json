@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CoreAngular.API/CoreAngular.API.csproj",
+                "${workspaceFolder}/CoreAngular.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/CoreAngular.API/CoreAngular.API.csproj",
+                "${workspaceFolder}/CoreAngular.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/CoreAngular.API/CoreAngular.API.csproj"
+                "${workspaceFolder}/CoreAngular.sln"
             ],
             "problemMatcher": "$msCompile"
         }

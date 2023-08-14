@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreAngular.API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")] //localhost/api/Users
-    public class UsersController : ControllerBase
+    public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
         public UsersController(DataContext context)
