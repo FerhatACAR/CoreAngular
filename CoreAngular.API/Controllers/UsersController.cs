@@ -1,10 +1,12 @@
 using CoreAngular.API.Data;
 using CoreAngular.API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreAngular.API.Controllers
 {
+    [Authorize]
     public class UsersController : BaseApiController
     {
         private readonly DataContext _context;
@@ -12,7 +14,8 @@ namespace CoreAngular.API.Controllers
         {
             this._context = context;
         }
-
+        
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers ()
         {
@@ -20,7 +23,7 @@ namespace CoreAngular.API.Controllers
 
             return users;
         }
-
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
