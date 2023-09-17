@@ -1,24 +1,12 @@
-using CoreAngular.API.Data;
-using CoreAngular.API.Interfaces;
-using CoreAngular.API.Services;
-using Microsoft.EntityFrameworkCore;
+using CoreAngular.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>(options => 
-{
-    options.UseOracle(builder.Configuration.
-    	GetConnectionString("OraDbConnection"));    
-});
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
-builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -34,6 +22,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
