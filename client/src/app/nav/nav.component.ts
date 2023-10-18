@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { User } from '../_models/User';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +14,7 @@ export class NavComponent {
   model: any = {};
 
 
-  constructor(public accountService: AccountService) {
+  constructor(public accountService: AccountService, private router: Router) {
        
   }
 
@@ -28,8 +29,8 @@ export class NavComponent {
 
   login(){
     this.accountService.login(this.model).subscribe({
-      next: () => {
-        console.log('Login Successful');
+      next: _ => {
+        this.router.navigateByUrl('/members');
       },
       error: (err) => {
         console.log(err);
@@ -39,5 +40,6 @@ export class NavComponent {
 
   logout(){
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }
