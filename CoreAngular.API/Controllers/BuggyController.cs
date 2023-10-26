@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CoreAngular.API.Data;
 using CoreAngular.API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CoreAngular.API.Controllers 
 {
@@ -23,7 +18,7 @@ namespace CoreAngular.API.Controllers
         [HttpGet("auth")]
         public ActionResult<string> GetSecret()
         {
-            return "secret key";
+            return "Secret Key";
         }
         
         [HttpGet("not-found")]
