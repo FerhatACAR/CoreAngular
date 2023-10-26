@@ -1,4 +1,3 @@
-using CoreAngular.API.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreAngular.API.Controllers
